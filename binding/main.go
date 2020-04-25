@@ -36,6 +36,7 @@ type Params struct {
 	Language             string   `json:"language,omitempty"`
 	DetectLanguage       bool     `json:"detect_language,omitempty"`
 	Verification         bool     `json:"verification,omitempty"`
+	TokensAround         int32    `json:"tokens_around,omitempty"`
 	Sources              []int32  `json:"sources,omitempty"`
 }
 
@@ -71,6 +72,10 @@ func setOpts(json_opts *C.char) []gnfinder.Option {
 		if err == nil {
 			opts = append(opts, gnfinder.OptLanguage(l))
 		}
+	}
+
+	if params.TokensAround > 0 {
+		opts = append(opts, gnfinder.OptTokensAround(int(params.TokensAround)))
 	}
 
 	return opts
