@@ -23,9 +23,6 @@ jobs:
     - name: Get dependencies
       run: make deps
 
-    - name: Build
-      run: make
-      
     - name: Build C lib
       run: make clib
     
