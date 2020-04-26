@@ -25,6 +25,10 @@ jobs:
         ./scripts/protoc-install.sh 3.11.4
         sudo cp /usr/local/bin/protoc /bin
         export PATH=$GOPATH/bin:$PATH
+        echo $PATH
+        ls $GOROOT
+        ls $GOPATH
+        ls $GOPATH/bin
 
     - name: Get dependencies
       run: make deps
