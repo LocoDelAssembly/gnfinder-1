@@ -26,9 +26,10 @@ jobs:
         sudo cp /usr/local/bin/protoc /bin
         export PATH=$GOPATH/bin:$PATH
         echo $PATH
-        ls $GOROOT
-        ls $GOPATH
-        ls $GOPATH/bin
+        ls $HOME/go
+        echo "====="
+        ls $HOME/go/bin
+        
 
     - name: Get dependencies
       run: make deps
