@@ -12,7 +12,7 @@ jobs:
     steps:
 
     - name: Set up Go 1.14
-      uses: actions/setup-go@v1
+      uses: actions/setup-go@v2
       with:
         go-version: 1.14
       id: go
@@ -24,11 +24,7 @@ jobs:
       run: |
         ./scripts/protoc-install.sh 3.11.4
         sudo cp /usr/local/bin/protoc /bin
-        export PATH=$GOPATH/bin:$PATH
         echo $PATH
-        ls $HOME/go
-        echo "====="
-        ls $HOME/go/bin
         
 
     - name: Get dependencies
