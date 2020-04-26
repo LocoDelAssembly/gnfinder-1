@@ -42,5 +42,5 @@ jobs:
     - name: Store C library
       uses: actions/upload-artifact@v1
       with:
-        name: clib
+        name: ${{ matrix.os }}-clib
         path: binding
