@@ -38,3 +38,9 @@ jobs:
     
     - name: Test
       run: make test
+
+    - name: Store C library
+      uses: actions/upload-artifact@v1
+      with:
+        name: clib
+        path: bindings
