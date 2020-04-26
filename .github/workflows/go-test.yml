@@ -30,9 +30,6 @@ jobs:
     - name: Get dependencies
       run: make deps
 
-    - name: Retrieve all tags
-      run: git fetch --tags
-
     - name: Build
       run: make
 
