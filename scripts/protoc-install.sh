@@ -9,12 +9,27 @@
 set -beEux -o pipefail
 
 if [ $# != 1 ] ; then
-    echo "wrong # of args: $0 protoversion" >&2
-    exit 1
+  echo "wrong # of args: $0 protoversion" >&2
+  exit 1
 fi
 
+case "$(uname -s)" in
+  Darwin)
+    PROTO_OS="osx"
+    ;;
+
+  Linux)
+    PROTO_OS="linux"
+    ;;
+
+  *)
+    echo 'Unknown OS'
+    exit 1
+    ;;
+esac
+
 PROTO_VERSION="$1"
-PROTO_FILE="protoc-${PROTO_VERSION}-linux-x86_64.zip"
+PROTO_FILE="protoc-${PROTO_VERSION}-${PROTO_OS}-x86_64.zip"
 PROTO_PATH="https://github.com/protocolbuffers/protobuf/releases/download/v${PROTO_VERSION}/${PROTO_FILE}"
 PROTO_DIR="/tmp/proto-${PROTO_VERSION}"
 
