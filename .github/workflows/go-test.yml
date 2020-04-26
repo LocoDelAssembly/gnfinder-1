@@ -8,7 +8,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, macos-latest]
     steps:
 
     - name: Set up Go 1.14
@@ -24,11 +24,12 @@ jobs:
       run: |
         ./scripts/protoc-install.sh 3.11.4
         sudo cp /usr/local/bin/protoc /bin
-        echo $PATH
         
-
     - name: Get dependencies
       run: make deps
+
+    - name: Build
+      run: make
 
     - name: Build C lib
       run: make clib
