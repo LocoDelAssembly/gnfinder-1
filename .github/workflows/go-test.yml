@@ -22,6 +22,7 @@ jobs:
     
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
+    - run: git fetch --prune --unshallow
 
     - name: Install protoc
       run: ./scripts/protoc-install.sh 3.11.4
