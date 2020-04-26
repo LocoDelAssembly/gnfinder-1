@@ -25,9 +25,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install protoc
-      run: |
-        ./scripts/protoc-install.sh 3.11.4
-        sudo cp /usr/local/bin/protoc /bin
+      run: ./scripts/protoc-install.sh 3.11.4
         
     - name: Get dependencies
       run: make deps
